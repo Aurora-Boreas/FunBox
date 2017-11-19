@@ -1,0 +1,30 @@
+@mixin media($screen) {
+
+  @if $screen==tablet {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $screen==desktop {
+    @media screen and (min-width: 1150px) {
+      @content;
+    }
+  }
+}
+
+@mixin wrapper-container() {
+  width: 320px;
+  margin: 0 auto;
+
+  @include media(tablet) {
+    width: 708px;
+  };
+
+  @include media(desktop) {
+    width: 1120px;
+//     height: 100vh;
+//     display: table-cell;
+// vertical-align: middle;
+  };
+}
