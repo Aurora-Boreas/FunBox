@@ -61,6 +61,20 @@ module.exports = function(grunt) {
         }
       }
     },
+    
+    minified : {
+      files: {
+        src: [
+        'build/js/**/*.js',
+        'build/js/*.js'
+        ],
+        dest: 'build/js/min/'
+      },
+      options : {
+        sourcemap: true,
+        allinone: false
+      }
+    },
 
     imagemin: {
       images: {
@@ -87,17 +101,6 @@ module.exports = function(grunt) {
       }
     },
 
-//    svgstore: {
-//      options: {
-//        includeTitleElement: false
-//      },
-//      sprite: {
-//        files: {
-//          "build/img/sprite.svg": ["img/s-*.svg"]
-//        }
-//      }
-//    },
-
     copy: {
       build: {
         files: [{
@@ -119,5 +122,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask("serve", ["browserSync", "watch"]);
-  grunt.registerTask("build", ["clean", "copy", "sass", "postcss", "cssmin"]);
+  grunt.registerTask("build", ["clean", "copy", "sass", "postcss", "cssmin", "minified"]);
 };
