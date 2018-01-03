@@ -10,9 +10,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #202020;
-  background-image: url('../img/shadow.png'), url('../img/pattern.jpg');
-  background-position: top;
-  background-size:  cover, auto;
-  background-repeat: repeat-x, repeat;
+  background: linear-gradient(#000, transparent 50%, #000) no-repeat, url('../img/pattern.jpg') repeat center;
+  // background-position: top;
+  // background-size:  cover, auto;
+  // background-repeat: no-repeat, repeat;
 }
 
