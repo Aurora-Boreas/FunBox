@@ -14,11 +14,12 @@ var itemHandler = function (e) {
 
 var clickHandler = function (e) {
   e.preventDefault();
-  var classlist = this.parentNode.parentNode.parentNode.querySelector('.catalog__item').classList;
+  var classlist = this.parentNode.parentNode.querySelector('.catalog__item').classList;
   var disabled = classlist.contains('catalog__item--denied');
 
   if (!disabled) {
     classlist.toggle('catalog__item--ordered');
+    classlist.toggle('catalog__item--default');
   }
 }
 
@@ -35,6 +36,4 @@ items.forEach(function (item) {
 itemsLinks.forEach(function (item) {
   item.addEventListener('click', clickHandler);
 });
-
-
 
