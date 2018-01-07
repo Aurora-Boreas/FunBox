@@ -99,176 +99,23 @@ transform: rotate(45deg);
 background-color: #ffffff;
 z-index: -10;
   }
-  // &::after {
-  //   position: absolute;
-  //   content: "";
-  //   bottom: 4px;
-  //   left: -4px;
-  //   z-index: -1;
-  //   width: 320px;
-  //    height: 484px;
-  //   background-image: url('../img/cat.png');
-  //   background-position: left -24px bottom -88px;
-  //   background-repeat: no-repeat;
-  //   border-radius: 12px;
-  // }
-}
-
-.catalog__item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  // box-sizing: border-box;
-  font-family: inherit;
-  cursor: pointer;
-  margin-top: 42px;
-  min-height: 434px;
-background-color: #f2f2f2;
-// border: 4px solid #0099cc;
-
-border-bottom-left-radius: 12px;
-border-bottom-right-radius: 12px;
-// border-top: none;
-background-image: url("../img/cat.png");
-background-position: left -28px bottom -90px;
-background-repeat: no-repeat;
-
-  &::after {
-    position: absolute;
-    content: "";
-    top: -53px;
-left: 19px;
-width: 0px;
-height: 63.5px;
-// border-left: 4px solid #0099cc;
-transform: rotate(45deg);
-background-color: #f2f2f2;
-  }
-
-  &::before {
-    position: absolute;
-    content: "";
-    top: -35px;
-left: 15px;
-width: 50px;
-height: 63.5px;
--webkit-transform: rotate(45deg);
-transform: rotate(45deg);
-background-color: #f2f2f2;
-z-index: -10;
-  }
-}
-
-.catalog__content {
-    min-height: 432px;
-    // width: 100%;
-    margin-left: 46px;
-    margin-top: -46px;
-    padding-top: 20px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    background-color: transparent;
-
-  &::before {
-    position: absolute;
-    content: "";
-    width: 271px;
-
-border-top-right-radius: 12px;
-background-color: #f2f2f2;
-// border-right: 4px solid #0099cc;
-// border-top: 4px solid #0099cc;
-top: -45px;
-height: 46px;
-right: -4px;
-z-index: -10;
-  }
 
 }
 
-.catalog__item--default {
-  border: 4px solid #0099cc;
-  border-top: none;
-
-  &::after {
-    border-left: 4px solid #0099cc
-  }
-}
-
-
-.catalog__item--default .catalog__content::before {
-  border-right: 4px solid #0099cc;
-  border-top: 4px solid #0099cc;
-}
-
-.catalog__item--default .catalog__content::after {
-  border-left: 4px solid #0099cc;
-}
 
 .catalog__item--ordered {
   border: 4px solid #cc0066;
-  border-top: none;
-
-  &::after {
-    border-left: 4px solid #cc0066;
-  }
-}
-
-
-.catalog__item--ordered:hover .catalog__description--default {
-    display: none;
-  }
-
-.catalog__item--ordered:hover .catalog__description--ordered {
-    display: block;
-  }
-
-.catalog__item--ordered .catalog__content {
-  &::before {
-    border-right: 4px solid  #cc0066;
-    border-top: 4px solid  #cc0066;
-  }
-
-  &::after {
-    border-left: 4px solid #cc0066;
-  }
 }
 
 .catalog__item--denied {
   background-color: #e4e4e4;
   border: 4px solid #b3b3b3;
-  border-top: none;
-  background-image: url("../img/cat_disabled.png");
-  color: #b3b3b3;
-
-  &::before {
-    background-color: #e4e4e4;
-  }
 
   &::after {
-    // opacity: 0.6;
-    border-left: 4px solid #b3b3b3;
-  }
-
-  & .catalog__description,
-  & .catalog__features {
-    color: #b3b3b3;
+    opacity: 0.6;
   }
 }
 
-.catalog__item--denied .catalog__content {
-
-  &::before {
-    background-color: #e4e4e4;
-    border-right: 4px solid  #b3b3b3;
-    border-top: 4px solid  #b3b3b3;
-  }
-
-  &::after {
-    border-left: 4px solid #b3b3b3;
-  }
-}
 
 
 .catalog__item--ordered > .catalog__corner {
@@ -313,15 +160,15 @@ z-index: -10;
 //   border-top: none;
 // }
 
-// .catalog__item--denied > .catalog__content {
-//   min-height: 369px;
-//   color: #b3b3b3;
+.catalog__item--denied > .catalog__content {
+  min-height: 369px;
+  color: #b3b3b3;
 
-//   & p,
-//   & span {
-//     color: #b3b3b3;
-//   }
-// }
+  & p,
+  & span {
+    color: #b3b3b3;
+  }
+}
 
 .catalog__header {
   position: relative;
@@ -463,10 +310,113 @@ z-index: -10;
   display: none;
 }
 
-.catalog__item--default .catalog__description--default,
-.catalog__item--ordered .catalog__signature--ordered {
+.catalog__item--default .catalog__description--default {
   display: block;
 }
 
 
+.catalog__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  // box-sizing: border-box;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 42px;
+  min-height: 434px;
+background-color: #f2f2f2;
 
+border: 4px solid #0099cc;
+
+
+
+border-bottom-left-radius: 12px;
+
+border-bottom-right-radius: 12px;
+
+border-top: none;
+background-image: url("../img/cat.png");
+background-position: left -28px bottom -90px;
+background-repeat: no-repeat;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: -53px;
+left: 19px;
+width: 0px;
+height: 63.5px;
+border-left: 4px solid #0099cc;
+// border-top: 4px solid #0099cc;
+// -webkit-transform: skew(-45deg, 0deg);
+transform: rotate(45deg);
+background-color: #f2f2f2;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: -35px;
+left: 15px;
+width: 50px;
+height: 63.5px;
+-webkit-transform: rotate(45deg);
+transform: rotate(45deg);
+background-color: #f2f2f2;
+z-index: -10;
+  }
+}
+
+.catalog__corner1 {
+  // position: absolute;
+  // content: "";
+  // top: 43px;
+  // left: 0;
+
+  // width: 46px;
+  // margin-top: 46px;
+  // background-color: #f2f2f2;
+  // border-left: 4px solid #0099cc;
+  // border-bottom: 4px solid #0099cc;
+  // border-bottom-left-radius: 12px;
+}
+
+.catalog__content {
+    min-height: 432px;
+    // width: 100%;
+    margin-left: 46px;
+    margin-top: -46px;
+    padding-top: 20px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: transparent;
+    // background-image: url("../img/cat.png");
+    // background-position: left -28px bottom -90px;
+    // background-repeat: no-repeat;
+    // border: 4px solid #0099cc;
+    // border-left: none;
+    // z-index: 100;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 271px;
+
+border-top-right-radius: 12px;
+
+background-color: #f2f2f2;
+
+border-right: 4px solid #0099cc;
+
+border-top: 4px solid #0099cc;
+
+top: -45px;
+
+height: 46px;
+
+right: -4px;
+z-index: -10;
+  }
+
+}

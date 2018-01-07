@@ -1,49 +1,45 @@
 'use strict';
-
-var itemHandler = function (e) {
-  if ( e.type == 'click' || e.keyCode == 0 || e.keyCode == 32 || e.keyCode == 13) {
-    var classlist = this.classList;
-    var disabled = classlist.contains('catalog__item--denied');
-
-    if (!disabled) {
-      classlist.toggle('catalog__item--ordered');
-      classlist.toggle('catalog__item--default');
-    }
-  }
-}
-
-var clickHandler = function (e) {
-  e.preventDefault();
-  var classlist = this.parentNode.parentNode.querySelector('.catalog__item').classList;
-  var disabled = classlist.contains('catalog__item--denied');
-
-  if (!disabled) {
-    classlist.toggle('catalog__item--ordered');
-    classlist.toggle('catalog__item--default');
-  }
-}
-
-var items = document.querySelectorAll('.catalog__list-item .catalog__item');
-var itemsLinks = document.querySelectorAll('.catalog__list-item .btn-buy');
-var eventList = ['click', 'keydown'];
-
-items.forEach(function (item) {
-  eventList.forEach(function (eventName) {
-    item.addEventListener(eventName, itemHandler);
-  });
+debugger;	
+	(function onclick(event) {
+		var $card = 'card';
+		var $buyLink = 'link';
+		var $disabled = 'product_state_disabled';
+		var $hovered = 'product_state_hovered';
+		var $selected = 'product_state_ordered';
+	
+		// Card hovering
+		$card.hover(function (e) {
+			var $product = this.parents('.catalog__list-item');
+			if ($product.hasClass($disabled) === false) {
+				$product.addClass($hovered);
+				e.preventDefault();
+			}
+		}, function (e) {
+			(this).parents('.product').removeClass($hovered);
+			e.preventDefault();
+		});
+	
+		// Card selecting
+		var selectCard = function () {
+			this.on('click', function (e) {
+				var $product = this.parents('.catalog__list-item');
+				if ($product.hasClass($disabled) === false) {
+					$product.toggleClass($selected);
+					$product.removeClass($hovered);
+					e.preventDefault();
+				}
+			});
+		};
+	
+		// Card selecting by card
+		$card.selectCard();
+	
+		// Card selecting by link
+		$buyLink.selectCard();
 });
-
-itemsLinks.forEach(function (item) {
-  item.addEventListener('click', clickHandler);
-});
-
-
-
-//npm run build
-//});
 //(function() {
-//
-//
+//  
+//  
 //
 //  var itElem = document.querySelector(".catalog__list-item");
 //  var item = itElem.querySelectorAll(".default");
@@ -54,7 +50,7 @@ itemsLinks.forEach(function (item) {
 ////    console.log(item["0"].className);
 //    for (var i=0 ; i< item.length; i++) {
 //      console.log(item[i].classList[1]);
-//
+//      
 //      if (item[i].classList[1] == "default")  {
 //        item[i].classList.remove("default");
 //        item[i].classList.add("ordered");
@@ -74,24 +70,24 @@ itemsLinks.forEach(function (item) {
 ////    }
 //
 //});
-//
-//})();
+//  
+//})(); 
 //  function onclick(event) {
 //  var el = this.getElementsByTagName('A')[0];
 //  el.style.display = (el.style.display == 'none') ? '' : 'none'
 //}
 
-
+  
 //  elems.onclick = function() {
 //    elem.childNodes[1].className = (elem.childNodes[1].className == 'catalog__item--ordered') ? '' : 'catalog__item--ordered'
 //  }
-
+  
 //  elem.addEventListener("onclick", function changeFrame(){
 //   if (elem.childNodes[1].className == '.catalog__item catalog__item--default');
 //     elem.childNodes[1].className.toggle('.catalog__item catalog__item--ordered');
-//  });
-
-
+//  });  
+    
+ 
 
 
 //$(document).ready(function () {
